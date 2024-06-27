@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon --watch \"src/**\" --ext \"js,json\" --exec \"node src/app.js\"",
     "build": "webpack",
-    "start": "node dist/server.js"
+    "start": "node api/server.js"
   },
   "keywords": [],
   "author": "",
@@ -21,9 +21,6 @@
     "morgan": "^1.10.0"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^2.21.1",
-    "eslint": "^9.5.0",
-    "eslint-plugin-format": "^0.1.2",
     "nodemon": "^3.1.4",
     "webpack": "^5.92.1",
     "webpack-cli": "^5.1.4"

@@ -13,7 +13,7 @@ const cors = require('cors');
 const routes = require('./routes/app.routes');
 
 // DEFINE HOSTNAME & PORT
-const [hostname, port] = (process.env.NODE_SERVER || '127.0.0.1,3000').split(',');
+const port = process.env.PORT || '3000';
 
 // CONSUME USEFUL MIDDLEWARES
 app.use(express.json());
@@ -24,7 +24,7 @@ app.use(cors());
 app.use('/', routes);
 
 // SERVE REACT APP AS STATIC FOLDER FOR PRODUCTION
-app.use(express.static('./client/dist'));
+app.use(express.static('./client'));
 
 // CONNECT TO DATABASE IF YOU NEED DATABASE INTERACTIONS
 mongoose.set('strictQuery', false);
@@ -40,7 +40,7 @@ async function connectToMongoDB() {
 connectToMongoDB().then(() => {
   // START LISTENING TO REQUESTS W/ EXPRESS SERVER APP AFTER CONNECTING TO MONGODB
   app.listen(port, () => {
-    console.warn(`Server running at ${port}/`);
+    console.warn(`Server running at http://localhost:${port}/`);
   });
 });
 
